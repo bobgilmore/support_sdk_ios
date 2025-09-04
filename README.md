@@ -1,5 +1,7 @@
 :warning: *Use of this software is subject to important terms and conditions as set forth in the License file* :warning:
 
+:warning: *This is a modified version of the library, intended to support Xcode 26, with broken UIs. I use my own UI, so I don't care about breaking the supplied UI methods.* :warning:
+
 # Zendesk Support SDK for iOS
 
 Zendesk Support SDK for mobile is a quick, convenient way to get customer support into your mobile apps. With just a few lines of code, you can provide your end users with an easy way to get in touch from any mobile app.
