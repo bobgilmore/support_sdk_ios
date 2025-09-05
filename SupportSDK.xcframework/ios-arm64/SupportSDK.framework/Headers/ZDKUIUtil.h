@@ -184,30 +184,39 @@ ZDKUIIsLandscape()
 
 #pragma clang diagnostic pop
 
+/**
+ * N.B.: This version of the method is intentionally broken, to avoid calls to mainScreen,
+ * which are disallowed under Xcode 26. My app has no need to call this method (I show my
+ * own UI), so this breakage does not concern me.
+ *
+ * Once Zendesk updates their production code, I will stop supporting this repo, and move
+ * back to their official repo.
+ */
 CG_INLINE CGRect
 CGRectMakeCenteredInScreen(CGFloat width, CGFloat height)
 {
-    CGRect screen = [UIScreen mainScreen].bounds;
-
-    Boolean isLandscape = ZDKUIIsLandscape();
-
-    CGRect rect;
-
-    if (isLandscape) {
-        if([ZDKUIUtil isOlderVersion:@"8.0"])
-        {
-            rect = CGRectMake(CGRectGetMidY(screen) - (width * 0.5f),
-                              CGRectGetMidX(screen) - (height * 0.5f), width, height);
-        }else{
-            rect = CGRectMake(CGRectGetMidX(screen) - (width * 0.5f),
-                              CGRectGetMidY(screen) - (height * 0.5f), width, height);
-        }
-
-    } else {
-        rect = CGRectMake(CGRectGetMidX(screen) - (width * 0.5f),
-                          CGRectGetMidY(screen) - (height * 0.5f), width, height);
-    }
-    return rect;
+//     CGRect screen = [UIScreen mainScreen].bounds;
+// 
+//     Boolean isLandscape = ZDKUIIsLandscape();
+// 
+//     CGRect rect;
+// 
+//     if (isLandscape) {
+//         if([ZDKUIUtil isOlderVersion:@"8.0"])
+//         {
+//             rect = CGRectMake(CGRectGetMidY(screen) - (width * 0.5f),
+//                               CGRectGetMidX(screen) - (height * 0.5f), width, height);
+//         }else{
+//             rect = CGRectMake(CGRectGetMidX(screen) - (width * 0.5f),
+//                               CGRectGetMidY(screen) - (height * 0.5f), width, height);
+//         }
+// 
+//     } else {
+//         rect = CGRectMake(CGRectGetMidX(screen) - (width * 0.5f),
+//                           CGRectGetMidY(screen) - (height * 0.5f), width, height);
+//     }
+//     return rect;
+    return CGRectMake(0.0, 0.0, 0.0, 0.0);
 }
 
 
@@ -239,22 +248,30 @@ CGCenterRectInRect(CGRect rect, CGRect inRect)
 
 /**
  * Returns the full screen frame with no attempt to account for the status bar.
+ *
+ * N.B.: This version of the method is intentionally broken, to avoid calls to mainScreen,
+ * which are disallowed under Xcode 26. My app has no need to call this method (I show my
+ * own UI), so this breakage does not concern me.
+ *
+ * Once Zendesk updates their production code, I will stop supporting this repo, and move
+ * back to their official repo.
  */
 CG_INLINE CGRect
 ZDKUIScreenFrame()
 {
-    CGSize screenSize = [UIScreen mainScreen].bounds.size;
-
-    CGFloat width = screenSize.width;
-    CGFloat height = screenSize.height;
-
-    if (ZDKUIIsLandscape() && width < height) {
-
-        width = height;
-        height = screenSize.width;
-    }
-
-    return CGRectMake(0, 0, width, height);
+//     CGSize screenSize = [UIScreen mainScreen].bounds.size;
+// 
+//     CGFloat width = screenSize.width;
+//     CGFloat height = screenSize.height;
+// 
+//     if (ZDKUIIsLandscape() && width < height) {
+// 
+//         width = height;
+//         height = screenSize.width;
+//     }
+// 
+//     return CGRectMake(0, 0, width, height);
+    return CGRectMake(0, 0, 0, 0);
 }
 
 
